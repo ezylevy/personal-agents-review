@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>סוכנים אישיים: סקירה</title>
+<meta name="description" content="סקירה זהירה של שלושת הסוכנים האישיים החדשים: Instinct, Tab ו-Muse של Meta. מה הם עושים, כמה הם עולים, ומה כדאי לבדוק לפני שנותנים להם גישה.">
+<meta property="og:title" content="Instinct, Tab, Muse: סקירה זהירה של הסוכנים האישיים">
+<meta property="og:description" content="מה הם עושים, כמה הם עולים, ומה כדאי לבדוק לפני שנותנים להם את הכרטיס.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbf8f3;
+    --surface: #ffffff;
+    --ink: #1d1b2a;
+    --muted: #5d5a6e;
+    --line: #e9e4dc;
+    --warn-bg: #fff4e0;
+    --warn-ink: #8a4b00;
+    --instinct: #f2542d;
+    --instinct-soft: #ffe9e2;
+    --tab: #0e9f6e;
+    --tab-soft: #ddf6ec;
+    --muse: #5b4ce0;
+    --muse-soft: #ebe8ff;
+    --wa: #25d366;
+    --shadow: 0 10px 30px -12px rgba(29, 27, 42, .18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14131c;
+      --surface: #1e1c29;
+      --ink: #f1eff8;
+      --muted: #a9a6ba;
+      --line: #2f2c3d;
+      --warn-bg: #33260f;
+      --warn-ink: #ffcf8a;
+      --instinct-soft: #3a1f19;
+      --tab-soft: #10332a;
+      --muse-soft: #26224a;
+      --shadow: 0 10px 30px -12px rgba(0, 0, 0, .6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14131c;
+    --surface: #1e1c29;
+    --ink: #f1eff8;
+    --muted: #a9a6ba;
+    --line: #2f2c3d;
+    --warn-bg: #33260f;
+    --warn-ink: #ffcf8a;
+    --instinct-soft: #3a1f19;
+    --tab-soft: #10332a;
+    --muse-soft: #26224a;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, .6);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Heebo", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0 56px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(242, 84, 45, .28), transparent 45%),
+      radial-gradient(circle at 15% 30%, rgba(91, 76, 224, .30), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(14, 159, 110, .25), transparent 50%);
+  }
+  .kicker {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .02em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--muted);
+  }
+  h1 {
+    font-size: clamp(34px, 7vw, 60px);
+    line-height: 1.1;
+    font-weight: 900;
+    margin: 18px 0 14px;
+    letter-spacing: -.01em;
+  }
+  h1 span { display: inline-block; }
+  h1 .i { color: var(--instinct); }
+  h1 .t { color: var(--tab); }
+  h1 .m { color: var(--muse); }
+  .lede { font-size: clamp(18px, 2.6vw, 21px); color: var(--muted); max-width: 680px; margin: 0; }
+  .byline { margin-top: 22px; font-size: 14px; color: var(--muted); }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .jump a {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: #fff;
+    box-shadow: var(--shadow);
+  }
+  .jump .ji { background: var(--instinct); }
+  .jump .jt { background: var(--tab); }
+  .jump .jm { background: var(--muse); }
+  .jump .jc { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+
+  section { padding: 40px 0; }
+  h2 { font-size: clamp(26px, 4.5vw, 34px); font-weight: 900; margin: 0 0 14px; line-height: 1.2; }
+  h3 { font-size: 19px; font-weight: 800; margin: 22px 0 6px; }
+  p { margin: 0 0 14px; }
+
+  .note {
+    background: var(--warn-bg);
+    color: var(--warn-ink);
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 15.5px;
+  }
+
+  /* Intro tiles */
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 18px; }
+  .tile {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 18px;
+  }
+  .tile b { display: block; font-size: 17px; margin-bottom: 4px; }
+  .tile span { color: var(--muted); font-size: 15.5px; }
+
+  /* Agent cards */
+  .agent {
+    --c: var(--ink);
+    --soft: var(--surface);
+    background: var(--surface);
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .agent.instinct { --c: var(--instinct); --soft: var(--instinct-soft); }
+  .agent.tab { --c: var(--tab); --soft: var(--tab-soft); }
+  .agent.muse { --c: var(--muse); --soft: var(--muse-soft); }
+  .agent-head {
+    background: var(--soft);
+    padding: 26px 24px 20px;
+    border-bottom: 4px solid var(--c);
+  }
+  .agent-head .num {
+    display: inline-grid; place-items: center;
+    width: 38px; height: 38px; border-radius: 12px;
+    background: var(--c); color: #fff; font-weight: 900; font-size: 19px;
+  }
+  .agent-head h2 { color: var(--c); margin: 10px 0 4px; }
+  .agent-head .tag { color: var(--muted); font-size: 16px; margin: 0; }
+  .agent-body { padding: 8px 24px 26px; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 18px 0 6px; }
+  .fact {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 14px;
+  }
+  .fact small { display: block; color: var(--muted); font-size: 13px; font-weight: 500; }
+  .fact strong { font-size: 17px; font-weight: 800; }
+
+  ul.clean { margin: 0 0 12px; padding: 0 20px 0 0; }
+  ul.clean li { margin-bottom: 6px; }
+  ul.clean li::marker { color: var(--c); }
+
+  .verdict {
+    background: var(--soft);
+    border-right: 5px solid var(--c);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    font-weight: 500;
+  }
+  .verdict b { color: var(--c); }
+
+  .mine {
+    margin: 20px 0 8px;
+    padding: 18px 18px 14px;
+    border-radius: 18px;
+    background: var(--soft);
+  }
+  .mine h3 { margin-top: 0; color: var(--c); }
+  .mine p { font-size: 15.5px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; padding: 0; list-style: none; }
+  .chips li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  .star {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--surface);
+    border: 2px solid var(--c);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font-size: 15.5px;
+  }
+  .star .ico { flex: 0 0 auto; font-size: 18px; line-height: 1.6; }
+  .star b { color: var(--c); }
+
+  .warns { margin-top: 10px; }
+  .warn {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--warn-bg); color: var(--warn-ink);
+    border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; font-size: 15.5px;
+  }
+  .warn .ico { flex: 0 0 auto; font-size: 17px; line-height: 1.6; }
+
+  .join {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+    margin-top: 22px; padding: 16px 18px;
+    border: 2px dashed var(--c); border-radius: 16px;
+  }
+  .join p { margin: 0; font-size: 15.5px; }
+  .join p b { display: block; font-size: 17px; }
+  .btn {
+    display: inline-block; text-decoration: none;
+    background: var(--c); color: #fff;
+    font-weight: 800; padding: 12px 22px; border-radius: 999px;
+    box-shadow: var(--shadow);
+    transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15.5px; }
+  th, td { padding: 12px 14px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top; }
+  thead th { font-weight: 900; font-size: 16px; }
+  thead th.ci { color: var(--instinct); }
+  thead th.ct { color: var(--tab); }
+  thead th.cm { color: var(--muse); }
+  tbody th { font-weight: 700; color: var(--muted); white-space: nowrap; }
+  tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+
+  /* Checklist */
+  .checks { display: grid; gap: 12px; counter-reset: c; margin-top: 16px; }
+  .check {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 18px;
+  }
+  .check::before {
+    counter-increment: c; content: counter(c);
+    flex: 0 0 32px; height: 32px; border-radius: 10px;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--instinct), var(--muse));
+    color: #fff; font-weight: 900;
+  }
+  .check b { display: block; }
+  .check span { color: var(--muted); font-size: 15.5px; }
+
+  /* Community CTA */
+  .community {
+    background: linear-gradient(135deg, #075e54, #128c7e 55%, #25d366);
+    color: #fff;
+    border-radius: 28px;
+    padding: 34px 26px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .community h2 { color: #fff; }
+  .community p { color: rgba(255, 255, 255, .9); max-width: 560px; margin: 0 auto 20px; }
+  .community .btn { background: #fff; color: #075e54; font-size: 18px; padding: 14px 28px; }
+  .community small { display: block; margin-top: 14px; color: rgba(255, 255, 255, .8); }
+
+  /* Sources */
+  details.sources {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 14px 18px;
+  }
+  details.sources summary { cursor: pointer; font-weight: 800; }
+  details.sources h4 { margin: 14px 0 4px; font-size: 15px; }
+  details.sources ul { margin: 0; padding: 0 18px 0 0; font-size: 14.5px; }
+  details.sources a { color: var(--muted); word-break: break-word; }
+
+  footer { padding: 30px 0 48px; color: var(--muted); font-size: 14px; text-align: center; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .hero { padding: 44px 0 40px; }
+    .agent-head, .agent-body { padding-left: 18px; padding-right: 18px; }
+    .join { flex-direction: column; align-items: stretch; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">סקירה לקהילה · נובמבר 2026</span>
+    <h1>שלושה סוכנים אישיים:<br><span class="i">Instinct</span>, <span class="t">Tab</span> ו-<span class="m">Muse</span></h1>
+
+    <p class="lede">תשמעו, בחודשיים האחרונים יצאו שלושה סוכנים שמבטיחים לעשות בשבילנו את הסידורים: להזמין, להתקשר, למלא טפסים ואפילו לשלם. ישבתי על זה ברצינות. הנה מה שהם יודעים לעשות, כמה זה עולה, ולמה לדעתי עוד לא כדאי למסור להם את הכרטיס.</p>
+    <p class="byline">עזי לוי · AI with Ezy</p>
+    <nav class="jump" aria-label="קפיצה לסוכן">
+      <a class="ji" href="#instinct">Instinct</a>
+      <a class="jt" href="#tab">Tab</a>
+      <a class="jm" href="#muse">Muse</a>
+      <a class="jc" href="#compare">השוואה מהירה</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>רגע, מה זה בכלל "סוכן אישי"?</h2>
+    <p>צ'אטבוט עונה לך על שאלה. סוכן אישי <b>עושה בשבילך</b>. לכל אחד מהשלושה יש מחשב משלו בענן, עם דפדפן, והוא מתחבר לחשבונות שלך ומבצע משימות מההתחלה ועד הסוף. אתה כותב לו "תזמין לי שולחן לשישי בערב" וזהו, הוא מטפל.</p>
+    <div class="tiles">
+      <div class="tile"><b>💬 מדברים איתו בהודעות</b><span>ב-iMessage, בוואטסאפ או באפליקציה, כמו עם עוזר אישי.</span></div>
+      <div class="tile"><b>🖥️ יש לו מחשב משלו</b><span>הוא גולש, ממלא טפסים ולוחץ על כפתורים. לא צריך API.</span></div>
+      <div class="tile"><b>📞 חלקם גם מתקשרים</b><span>לעסקים, ומחכים על הקו במקומך.</span></div>
+      <div class="tile"><b>💳 וחלקם משלמים</b><span>וזה בדיוק החלק שבו צריך לעצור ולחשוב.</span></div>
+    </div>
+    <p class="note" style="margin-top:18px">⚠️ <b>הערה חשובה:</b> כל השלושה חדשים ממש. רוב המידע עליהם מגיע מבלוגים ואתרי סקירות, ויש לא מעט סתירות ביניהם. סימנתי לאורך הדף מה מאומת ומה לא. המקורות כולם בתחתית.</p>
+  </section>
+
+  <!-- INSTINCT -->
+  <section id="instinct">
+    <article class="agent instinct">
+      <div class="agent-head">
+        <span class="num">1</span>
+        <h2>Instinct</h2>
+        <p class="tag">הסוכן שכותב לך ראשון, והשווי שלו הוכפל פי ארבעה בתוך חודש</p>
+      </div>
+      <div class="agent-body">
+        <div class="facts">
+          <div class="fact"><small>מי</small><strong>נח שין, יוצא Sierra</strong></div>
+          <div class="fact"><small>שווי</small><strong>10 מיליארד $</strong></div>
+          <div class="fact"><small>משתמשים</small><strong>מעל 100 אלף</strong></div>
+          <div class="fact"><small>מחיר</small><strong>חינם בבטא</strong></div>
+        </div>
+
+        <h3>מה הוא עושה</h3>
+        <p>כותבים לו הודעה או פשוט מתקשרים אליו. הוא מתחבר למייל, להודעות, למסך, לאודיו ולמיקום, ועובד ממחשב ענן קבוע עם פרטי הגישה שלך לשירותים. לפי אחד המקורות, יותר מחצי מהשימוש בו הוא הזמנת נסיעות. מאוקטובר יש גם <b>צ'אטים קבוצתיים</b>: הסוכן שלך מבקש רשות לפני שהוא משתף מידע או פועל בתוך קבוצה.</p>
+
+        <div class="mine">
+          <h3>🙋‍♂️ מה גיליתי כשניסיתי בעצמי</h3>
+          <p>זה כבר לא רק "עוזר שמזמין דברים". הוא יודע גם ליצור:</p>
+          <ul class="chips">
+            <li>🎬 סרטונים</li>
+            <li>🖼️ תמונות</li>
+            <li>🎙️ פודקאסטים</li>
+            <li>🗣️ שכפול קולות</li>
+            <li>🌐 אתרים שאפשר לשתף</li>
+            <li>📄 יצירת קבצים</li>
+            <li>⏰ משימות מתוזמנות שחוזרות</li>
+            <li>📍 שירותים ופעילויות לפי מיקום</li>
+            <li>🔌 חיבור לכלים חיצוניים</li>
+          </ul>
+          <p>החיבור לכלים חיצוניים מוסיף לו עוד יכולות, כך שהוא נהיה חזק יותר ככל שמחברים אליו יותר.</p>
+          <div class="star"><span class="ico">⭐</span><span><b>פה הוא באמת שונה:</b> Instinct <b>יוזם שיחות בעצמו</b> ומנהל מולך תהליכים ארוכי טווח. הוא לא מחכה שתכתוב לו. הוא חוזר אליך, מעדכן ומקדם את המשימה.</span></div>
+        </div>
+
+        <h3>הכסף</h3>
+        <ul class="clean">
+          <li>באוגוסט 2026 גייסו 250 מיליון דולר לפי שווי של 2.5 מיליארד. הובילו Index ו-Benchmark.</li>
+          <li>ב-28 בספטמבר גייסו מיליארד דולר לפי שווי של 10 מיליארד. מי הוביל את הסבב? לא ברור. יש מקורות שמזכירים את Sequoia, ‏Benchmark ו-Coatue, ויש שאומרים שלא פורסם.</li>
+        </ul>
+
+        <h3>על מה לשים לב</h3>
+        <div class="warns">
+          <div class="warn"><span class="ico">🔑</span><span>הוא מקבל סמכות רחבה מאוד, כולל ביצוע רכישות ואישור הסכמים בשמך.</span></div>
+          <div class="warn"><span class="ico">⚖️</span><span>לפי אחד המקורות, <b>האחריות המלאה על מה שהסוכן עושה היא שלך</b>. כדאי לקרוא את תנאי השימוש לפני שמחברים חשבונות.</span></div>
+          <div class="warn"><span class="ico">🎟️</span><span>נכנסים רק בהזמנה, והמחיר אחרי הבטא עוד לא פורסם.</span></div>
+        </div>
+
+        <div class="verdict"><b>השורה התחתונה שלי:</b> על פניו זה הסוכן הכי בשל מהשלושה, והקפיצה בשווי אומרת שמשקיעים מאמינים בו מאוד. מה שהכי הרשים אותי הוא שהוא מתנהג כמו עוזר אמיתי: יוזם, עוקב וסוגר תהליכים. אבל ככל שהוא יכול לעשות יותר, יש יותר מה להפסיד. הייתי מתחיל אצלו ממשימות בלי כסף.</div>
+
+        <div class="join">
+          <p><b>רוצים לנסות את Instinct?</b>הכניסה רק בהזמנה, וזה קישור ההזמנה האישי שלי.</p>
+          <a class="btn" href="https://app.instinct.com/invite?t=35eaxnw4t63rcuoihis24vr7qa&amp;preview=whatsapp" target="_blank" rel="noopener">להצטרפות ל-Instinct ←</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- TAB -->
+  <section id="tab">
+    <article class="agent tab">
+      <div class="agent-head">
+        <span class="num">2</span>
+        <h2>Tab</h2>
+        <p class="tag">הסוכן שגר בתוך הוואטסאפ ומצטיין במולטימדיה</p>
+      </div>
+      <div class="agent-body">
+        <div class="facts">
+          <div class="fact"><small>השקה</small><strong>אוקטובר 2026</strong></div>
+          <div class="fact"><small>שווי</small><strong>300 מיליון $</strong></div>
+          <div class="fact"><small>איפה מדברים איתו</small><strong>וואטסאפ · iMessage</strong></div>
+          <div class="fact"><small>מחיר</small><strong>כנראה חינם בבטא</strong></div>
+        </div>
+
+        <h3>מה הוא עושה</h3>
+        <p>שולחים לו הודעה בוואטסאפ או ב-iMessage, וזה אותו Tab עם אותו זיכרון בשני המקומות. יש לו מחשב ודפדפן משלו בענן. הוא מזמין, ממלא טפסים, <b>מתקשר לעסקים ומחכה על הקו בשבילך</b>, ומשלם חשבוניות. פה נמצא החלק המעניין: הוא משלם רק אחרי שאישרת את הסכום המדויק.</p>
+        <p>לפי החברה, המידע שלך לא משמש לאימון מודלים, והכרטיס שמור בכספת שהסוכן עצמו לא רואה. זה נשמע טוב, אבל זו טענה של החברה ולא בדיקה חיצונית.</p>
+
+        <div class="mine">
+          <h3>🙋‍♂️ מה גיליתי כשניסיתי בעצמי</h3>
+          <p>גם Tab יודע הרבה יותר מסידורים:</p>
+          <ul class="chips">
+            <li>🎬 סרטונים</li>
+            <li>🖼️ תמונות</li>
+            <li>🎙️ פודקאסטים</li>
+            <li>🗣️ שכפול קולות</li>
+            <li>🌐 אתרים שאפשר לשתף</li>
+            <li>📄 יצירת קבצים</li>
+            <li>⏰ משימות מתוזמנות שחוזרות</li>
+            <li>📍 שירותים ופעילויות לפי מיקום</li>
+            <li>🔌 חיבור לכלים חיצוניים</li>
+          </ul>
+          <p>גם כאן, כל כלי חיצוני שמחברים מוסיף לו עוד יכולות.</p>
+          <div class="star"><span class="ico">⭐</span><span><b>פה הוא באמת מצטיין:</b> כל מה שקשור ל<b>מולטימדיה</b>. סרטונים, תמונות, פודקאסטים וקול יוצאים לו ממש טוב.</span></div>
+        </div>
+
+        <h3>על מה לשים לב</h3>
+        <div class="warns">
+          <div class="warn"><span class="ico">🧪</span><span><b>אמינות:</b> בבדיקה עצמאית הוא קיבל 6.3, והזמנות ורכישות נתקעו באמצע. המסקנה שם הייתה שהוא עוד לא מוכן לרכישות יומיומיות או לתכנון טיולים. גם זה מקור משני, ולא מצאתי את הבדיקה המקורית.</span></div>
+          <div class="warn"><span class="ico">🐢</span><span><b>מגבלת שימוש יומית:</b> אחרי שעוברים אותה, זמן התגובה שלו מתארך משמעותית. כדאי לשמור את המשימות הכבדות לתחילת היום.</span></div>
+          <div class="warn"><span class="ico">🌍</span><span>מקור אחד מדבר על יותר מ-40 מדינות ואחר אומר שאין רשימה רשמית. לא מצאתי אישור לישראל.</span></div>
+          <div class="warn"><span class="ico">📋</span><span>נרשמים לרשימת המתנה, וההרשמה לא מבטיחה שתקבלו גישה.</span></div>
+        </div>
+
+        <div class="verdict"><b>השורה התחתונה שלי:</b> סוכן בתוך הוואטסאפ זה בדיוק המקום שבו אנחנו כבר נמצאים. ביצירת תוכן ומולטימדיה הוא פשוט מצוין, ושם הייתי מתחיל. ברכישות, לפי מה שמדווח, הביצוע עוד צולע, אז עם תשלומים הייתי מחכה.</div>
+
+        <div class="join">
+          <p><b>רוצים לנסות את Tab?</b>זה קישור ההזמנה האישי שלי.</p>
+          <a class="btn" href="https://tab.bot/r/B545C8B57A8DDBEF" target="_blank" rel="noopener">להצטרפות ל-Tab ←</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- MUSE -->
+  <section id="muse">
+    <article class="agent muse">
+      <div class="agent-head">
+        <span class="num">3</span>
+        <h2>Muse <span style="font-weight:500;font-size:.6em;color:var(--muted)">של Meta</span></h2>
+        <p class="tag">הענקית נכנסה למשחק, וגם הבעיות הכי מתועדות שלה</p>
+      </div>
+      <div class="agent-body">
+        <div class="facts">
+          <div class="fact"><small>השקה</small><strong>8 בספטמבר 2026</strong></div>
+          <div class="fact"><small>איפה</small><strong>אפליקציה · ווב · וואטסאפ</strong></div>
+          <div class="fact"><small>מדינות</small><strong>ארה"ב, קנדה, יפן, סינגפור</strong></div>
+          <div class="fact"><small>מחיר</small><strong>מחינם ועד 100$ לחודש</strong></div>
+        </div>
+
+        <h3>מה הוא עושה</h3>
+        <p>סוכן למשימות ארוכות שרץ על מכונה וירטואלית שמיועדת רק לך. הוא מתחבר למייל, ליומן ולתשלומים, וכשאין API הוא פשוט נכנס דרך הדפדפן. בספטמבר נוספו לו גם אווטאר שמדבר בזמן אמת, שליטה באפליקציות ב-Mac וכתובת מייל משלו.</p>
+
+        <h3>כמה זה עולה</h3>
+        <ul class="clean">
+          <li><b>Free</b>: בערך 100 מיליון טוקנים בשבוע. המספר הזה הגיע מפוסט של צוקרברג, לא מתיעוד רשמי.</li>
+          <li><b>Power</b>: ‏20$ לחודש, 500 מיליון טוקנים בשבוע.</li>
+          <li><b>Maximum</b>: ‏100$ לחודש, 3 מיליארד טוקנים בשבוע.</li>
+        </ul>
+
+        <h3>על מה לשים לב. פה יש הכי הרבה</h3>
+        <div class="warns">
+          <div class="warn"><span class="ico">🔓</span><span><b>צ'אטים משותפים נחשפו:</b> חברת אבטחה הצליחה למצוא כ-6,800 קישורים לשיחות משותפות, ובהם מסמכים פנימיים של חברות ופרטים פיננסיים. Meta השעתה את פיצ'ר השיתוף.</span></div>
+          <div class="warn"><span class="ico">🛒</span><span><b>אמזון חסמה אותו</b> ב-21 בספטמבר. לטענת אמזון, הסוכן לא מזדהה כשהוא גולש באתר ונראה ששומר פרטי התחברות של לקוחות. אלה טענות של אמזון, ויש מי שקושר את החסימה גם לעסקי הפרסום שלה.</span></div>
+          <div class="warn"><span class="ico">🐞</span><span>Meta שילמה 300 אלף דולר על באג שחשף שיחות וטוקני גישה במכונות שבהן בדקו את Muse.</span></div>
+          <div class="warn"><span class="ico">🗣️</span><span>מי שהיה ראש האבטחה של Meta כינה את מתן הסיסמאות ל-Muse "מטורף".</span></div>
+          <div class="warn"><span class="ico">🇮🇱</span><span>אין עדיין זמינות בישראל, ולא מצאתי שום אזכור לעברית.</span></div>
+        </div>
+
+        <div class="verdict"><b>השורה התחתונה שלי:</b> ל-Meta יש את הכסף, את המשתמשים ואת הוואטסאפ, ולכן ברור שזה יגיע גם אלינו. אבל מהשלושה, פה יש הכי הרבה תקריות פרטיות מתועדות. כשזה יגיע לארץ, כדאי לכבות את האימון על השיחות (זה אפשרי) ולא לשתף צ'אטים.</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="compare">
+    <h2>השוואה מהירה</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th class="ci">Instinct</th><th class="ct">Tab</th><th class="cm">Muse</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>מצב</th><td>בטא, רק בהזמנה</td><td>בטא, רשימת המתנה</td><td>פתוח ב-4 מדינות</td></tr>
+          <tr><th>ערוץ</th><td>הודעות ושיחות</td><td>וואטסאפ ו-iMessage</td><td>אפליקציה, ווב, וואטסאפ</td></tr>
+          <tr><th>מחיר</th><td>חינם בבטא</td><td>כנראה חינם בבטא</td><td>מחינם ועד 100$ לחודש</td></tr>
+          <tr><th>ישראל ועברית</th><td>לא ידוע</td><td>לא ידוע</td><td>לא זמין</td></tr>
+          <tr><th>יצירת תוכן</th><td>סרטונים, תמונות, פודקאסטים, קולות ואתרים</td><td>סרטונים, תמונות, פודקאסטים, קולות ואתרים</td><td>לא בדקתי</td></tr>
+          <tr><th>משימות מתוזמנות</th><td>✅</td><td>✅</td><td>לא בדקתי</td></tr>
+          <tr><th>הכי חזק ב</th><td>יוזם שיחות ומנהל תהליכים ארוכים</td><td>מולטימדיה, ובתוך הוואטסאפ</td><td>גב של ענקית</td></tr>
+          <tr><th>מגבלת שימוש</th><td>לא פורסמה</td><td>יומית, ואחריה הוא מאט</td><td>לפי מכסת טוקנים שבועית</td></tr>
+          <tr><th>הסיכון העיקרי</th><td>סמכות רחבה, והאחריות עליך</td><td>ביצוע רכישות לא אמין</td><td>תקריות פרטיות מתועדות</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section>
+    <h2>אז איך מנסים בלי להסתבך?</h2>
+    <p>בקיצור, הנה מה שאני עושה ומה שהייתי ממליץ לכל מי שרוצה לשחק עם זה:</p>
+    <div class="checks">
+      <div class="check"><div><b>לא נותנים כרטיס אשראי או סיסמה ראשית, עדיין</b><span>לאף אחד מהשלושה. גם כשהם מבטיחים כספת.</span></div></div>
+      <div class="check"><div><b>מתחילים ממשימות בלי כסף</b><span>מחקר, תיאום, בירורים ושיחות טלפון. ככה רואים איך הוא עובד בלי סיכון.</span></div></div>
+      <div class="check"><div><b>מחברים מייל משני</b><span>לא את תיבת המייל הראשית שבה נמצאים החשבונות, הבנק והעבודה.</span></div></div>
+      <div class="check"><div><b>קוראים את תנאי השימוש</b><span>במיוחד את החלק שמסביר מי אחראי כשהסוכן טועה.</span></div></div>
+      <div class="check"><div><b>לא משתפים צ'אטים עם מידע רגיש</b><span>המקרה של Muse הראה שקישור "פרטי" לא תמיד נשאר פרטי.</span></div></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section>
+    <div class="community">
+      <h2>רוצים עוד סקירות כאלה?</h2>
+      <p>בקבוצה שלי אני משתף טיפים, כלים וחידושים ב-AI, עם דעה כנה ובלי רעש. קבוצה שקטה, רק עדכונים.</p>
+      <a class="btn" href="https://chat.whatsapp.com/LcW2GxWIN3u0VDr8LdsnDD" target="_blank" rel="noopener">להצטרפות לקבוצת הוואטסאפ ←</a>
+      <small>אפשר להעביר למי שרוצים 🙌</small>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section>
+    <details class="sources">
+      <summary>📚 מקורות (לחצו לפתיחה)</summary>
+      <h4>Instinct</h4>
+      <ul>
+        <li><a href="https://www.pymnts.com/news/artificial-intelligence/2026/personal-ai-agent-instinct-quadruples-valuation-to-10-billion-in-1-month/" target="_blank" rel="noopener">PYMNTS</a></li>
+        <li><a href="https://finance.yahoo.com/technology/ai/articles/ai-startup-instinct-raises-1bn-110953012.html" target="_blank" rel="noopener">Yahoo Finance</a></li>
+        <li><a href="https://runtimewire.com/article/instinct-noah-shinn-1-billion-series-c-personal-ai-agent" target="_blank" rel="noopener">RuntimeWire</a></li>
+        <li><a href="https://techfundingnews.com/ai-agent-instinct-jumps-to-10b-valuation-with-1b-led-by-sequoia-benchmark-and-coatue/" target="_blank" rel="noopener">TechFundingNews</a></li>
+        <li><a href="https://www.vellum.ai/blog/official-instinct-breakdown" target="_blank" rel="noopener">Vellum</a></li>
+        <li><a href="https://www.usecarly.com/blog/what-is-instinct-ai/" target="_blank" rel="noopener">usecarly</a></li>
+      </ul>
+      <h4>Tab</h4>
+      <ul>
+        <li><a href="https://techcrunch.com/2026/10/07/another-personal-ai-assistant-has-launched-meet-tab-which-emerged-from-stealth-with-a-300m-valuation/" target="_blank" rel="noopener">TechCrunch</a></li>
+        <li><a href="https://www.tomsguide.com/ai/meet-tab-the-personal-ai-assistant-race-is-heating-up-with-a-brand-new-personal-sidekick" target="_blank" rel="noopener">Tom's Guide</a></li>
+        <li><a href="https://www.aiagentslist.io/agents/tab-bot" target="_blank" rel="noopener">aiagentslist</a></li>
+        <li><a href="https://www.usecarly.com/blog/tab-ai-whatsapp/" target="_blank" rel="noopener">usecarly: Tab בוואטסאפ</a></li>
+        <li><a href="https://www.zeniteq.com/tab-launches-a-text-message-ai-assistant-in-private-beta-f5uwwf" target="_blank" rel="noopener">Zeniteq</a></li>
+      </ul>
+      <h4>Muse</h4>
+      <ul>
+        <li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta Newsroom</a></li>
+        <li><a href="https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/" target="_blank" rel="noopener">TechCrunch</a></li>
+        <li><a href="https://www.axios.com/2026/09/08/meta-debuts-muse-personal-ai-agent" target="_blank" rel="noopener">Axios</a></li>
+        <li><a href="https://www.cnbc.com/2026/09/08/meta-personal-ai-agents-public-reckoning-privacy-safety.html" target="_blank" rel="noopener">CNBC</a></li>
+        <li><a href="https://www.engadget.com/2292281/meta-suspends-muse-chats-sharing-feature-after-it-left-private-details-exposed/" target="_blank" rel="noopener">Engadget</a></li>
+        <li><a href="https://www.geekwire.com/2026/amazon-blocks-metas-muse-ai-assistant-in-new-standoff-over-agentic-shopping/" target="_blank" rel="noopener">GeekWire</a></li>
+        <li><a href="https://www.eweek.com/news/meta-muse-300000-bug-bounty-security-flaw/" target="_blank" rel="noopener">eWeek</a></li>
+        <li><a href="https://tipranks.com/news/former-meta-security-chief-calls-giving-muse-ai-password-access-insane" target="_blank" rel="noopener">TipRanks</a></li>
+        <li><a href="https://finance.yahoo.com/technology/ai/articles/metas-muse-arrives-three-pricing-183437528.html" target="_blank" rel="noopener">Yahoo Finance: מחירים</a></li>
+        <li><a href="https://www.aiagentslibrary.com/blog/meta-muse-availability/" target="_blank" rel="noopener">aiagentslibrary: זמינות</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Muse_(AI_agent)" target="_blank" rel="noopener">Wikipedia</a></li>
+      </ul>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">הסקירה מבוססת על מידע פומבי, נכון ל-7 בנובמבר 2026. זו לא המלצה מקצועית, ובוודאי לא המלצה לתת לסוכן את הכרטיס 😉</div>
+</footer>
+
+</body>
+</html>
